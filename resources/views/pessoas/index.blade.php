@@ -55,7 +55,7 @@
                             <i class="fas fa-search me-1"></i> Filtrar
                         </button>
                         <a href="{{ route('pessoas.index') }}" class="btn btn-secondary-custom" title="Limpar Filtros">
-                            <i class="fas fa-times"></i> <span class="d-none d-md-inline">Limpar</span>
+                            <i class="fas fa-times"></i>
                         </a>
                     </div>
                 </div>

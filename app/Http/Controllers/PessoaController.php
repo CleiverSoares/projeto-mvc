@@ -23,11 +23,19 @@ class PessoaController extends Controller
      */
     public function index(Request $request): View
     {
-        $filtros = $request->only(['nome', 'cpf', 'cidade', 'bairro', 'status', 'categoria_id', 'projeto_id']);
-        $pessoas = $this->pessoaService->listarPessoas($filtros);
-        $categorias = Categoria::ativos()->ordenados()->get();
-        
-        return view('pessoas.index', compact('pessoas', 'categorias', 'filtros'));
+        try {
+            $filtros = $request->only(['nome', 'cpf', 'cidade', 'bairro', 'status', 'categoria_id', 'projeto_id']);
+            $pessoas = $this->pessoaService->listarPessoas($filtros);
+            $categorias = Categoria::ativos()->ordenados()->get();
+            
+            return view('pessoas.index', compact('pessoas', 'categorias', 'filtros'));
+        } catch (\Exception $e) {
+            // Fallback: busca simples sem paginação
+            $pessoas = \App\Models\Pessoa::orderBy('nome_pessoa')->get();
+            $categorias = Categoria::ativos()->ordenados()->get();
+            
+            return view('pessoas.index', compact('pessoas', 'categorias', 'filtros'));
+        }
     }
 
     /**
