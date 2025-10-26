@@ -52,9 +52,11 @@
                 </div>
                 
                 <div class="mt-4">
+                    @if(in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor']))
                     <a href="{{ route('categorias.edit', $categoria->id) }}" class="btn btn-warning me-2">
                         <i class="fas fa-edit me-2"></i>Editar
                     </a>
+                    @endif
                     <a href="{{ route('categorias.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left me-2"></i>Voltar
                     </a>

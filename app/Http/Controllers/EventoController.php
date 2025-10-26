@@ -79,6 +79,10 @@ class EventoController extends Controller
      */
     public function destroy(string $id)
     {
+        // Apenas admin ou gestor podem excluir eventos
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 }

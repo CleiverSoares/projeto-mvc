@@ -89,9 +89,11 @@
             @endif
             
             <div class="d-flex gap-2 mt-4">
+                @if(in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor']))
                 <a href="{{ route('projetos.edit', $projeto->id) }}" class="btn btn-warning">
                     <i class="fas fa-edit me-2"></i>Editar
                 </a>
+                @endif
                 <a href="{{ route('projetos.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left me-2"></i>Voltar
                 </a>

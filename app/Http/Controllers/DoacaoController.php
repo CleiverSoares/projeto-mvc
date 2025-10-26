@@ -20,6 +20,10 @@ class DoacaoController extends Controller
      */
     public function create()
     {
+        // Apenas admin ou gestor podem criar doações
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 
@@ -28,6 +32,10 @@ class DoacaoController extends Controller
      */
     public function store(Request $request)
     {
+        // Apenas admin ou gestor podem criar doações
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 
@@ -45,6 +53,10 @@ class DoacaoController extends Controller
      */
     public function edit(string $id)
     {
+        // Apenas admin ou gestor podem editar doações
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 
@@ -53,6 +65,10 @@ class DoacaoController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // Apenas admin ou gestor podem atualizar doações
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 
@@ -61,6 +77,10 @@ class DoacaoController extends Controller
      */
     public function destroy(string $id)
     {
+        // Apenas admin ou gestor podem excluir doações
+        if (!in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor'])) {
+            abort(403, 'Acesso negado.');
+        }
         //
     }
 }

@@ -298,6 +298,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex gap-2">
+                    @if(in_array(auth()->user()->role ?? 'usuario', ['admin', 'gestor']))
                     <a href="{{ route('pessoas.edit', $pessoa->id) }}" class="btn btn-warning">
                         <i class="fas fa-edit me-2"></i>Editar
                     </a>
@@ -308,6 +309,7 @@
                             <i class="fas fa-trash me-2"></i>Excluir
                         </button>
                     </form>
+                    @endif
                     <a href="{{ route('pessoas.index') }}" class="btn btn-secondary">
                         <i class="fas fa-arrow-left me-2"></i>Voltar
                     </a>
