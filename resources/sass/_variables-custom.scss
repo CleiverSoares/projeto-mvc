@@ -1,0 +1,242 @@
+/* ========================================
+   PROJETO DOAR - DESIGN SYSTEM
+   Variáveis CSS Personalizadas
+   ======================================== */
+
+:root {
+  /* ========================================
+     CORES PRINCIPAIS - PROJETO DOAR
+     ======================================== */
+  
+  /* Azul Principal */
+  --primary-blue: #007BFF;
+  --primary-blue-dark: #0056B3;
+  --primary-blue-light: #66B3FF;
+  --primary-blue-lighter: #B3D9FF;
+  --primary-blue-lightest: #E6F3FF;
+  
+  /* Branco e Cinzas */
+  --secondary-white: #FFFFFF;
+  --secondary-gray-50: #F8F9FA;
+  --secondary-gray-100: #E9ECEF;
+  --secondary-gray-200: #DEE2E6;
+  --secondary-gray-300: #CED4DA;
+  --secondary-gray-400: #ADB5BD;
+  --secondary-gray-500: #6C757D;
+  --secondary-gray-600: #495057;
+  --secondary-gray-700: #343A40;
+  --secondary-gray-800: #212529;
+  --secondary-gray-900: #000000;
+  
+  /* Cores de Suporte */
+  --success-green: #28A745;
+  --success-green-light: #D4EDDA;
+  --warning-orange: #FFC107;
+  --warning-orange-light: #FFF3CD;
+  --danger-red: #DC3545;
+  --danger-red-light: #F8D7DA;
+  --info-cyan: #17A2B8;
+  --info-cyan-light: #D1ECF1;
+  
+  /* ========================================
+     CORES PARA DARK MODE
+     ======================================== */
+  
+  --dark-bg-primary: #1A1A1A;
+  --dark-bg-secondary: #2D2D2D;
+  --dark-bg-tertiary: #404040;
+  --dark-text-primary: #FFFFFF;
+  --dark-text-secondary: #E9ECEF;
+  --dark-text-muted: #ADB5BD;
+  --dark-border: #404040;
+  --dark-border-light: #495057;
+  
+  /* ========================================
+     TIPOGRAFIA
+     ======================================== */
+  
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;    /* 18px */
+  --font-size-xl: 1.25rem;     /* 20px */
+  --font-size-2xl: 1.5rem;     /* 24px */
+  --font-size-3xl: 1.875rem;   /* 30px */
+  --font-size-4xl: 2.25rem;    /* 36px */
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* ========================================
+     ESPAÇAMENTOS
+     ======================================== */
+  
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  
+  /* ========================================
+     BORDAS E SOMBRAS
+     ======================================== */
+  
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.375rem;  /* 6px */
+  --border-radius-lg: 0.5rem;    /* 8px */
+  --border-radius-xl: 0.75rem;   /* 12px */
+  --border-radius-2xl: 1rem;     /* 16px */
+  --border-radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* ========================================
+     TRANSIÇÕES
+     ======================================== */
+  
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* ========================================
+     Z-INDEX
+     ======================================== */
+  
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+
+[data-theme="dark"] {
+  --primary-blue: #4DABF7;
+  --primary-blue-dark: #339AF0;
+  --primary-blue-light: #74C0FC;
+  --primary-blue-lighter: #A5D8FF;
+  --primary-blue-lightest: #D0EBFF;
+  
+  --secondary-white: var(--dark-bg-primary);
+  --secondary-gray-50: var(--dark-bg-secondary);
+  --secondary-gray-100: var(--dark-bg-tertiary);
+  --secondary-gray-200: var(--dark-border);
+  --secondary-gray-300: var(--dark-border-light);
+  --secondary-gray-400: var(--dark-text-muted);
+  --secondary-gray-500: var(--dark-text-secondary);
+  --secondary-gray-600: var(--dark-text-primary);
+  --secondary-gray-700: var(--dark-text-primary);
+  --secondary-gray-800: var(--dark-text-primary);
+  --secondary-gray-900: var(--dark-text-primary);
+  
+  --success-green: #51CF66;
+  --success-green-light: #2B8A3E;
+  --warning-orange: #FFD43B;
+  --warning-orange-light: #F08C00;
+  --danger-red: #FF6B6B;
+  --danger-red-light: #C92A2A;
+  --info-cyan: #22C8E6;
+  --info-cyan-light: #0B7285;
+}
+
+/* ========================================
+   CLASSES UTILITÁRIAS
+   ======================================== */
+
+.text-primary-blue { color: var(--primary-blue) !important; }
+.bg-primary-blue { background-color: var(--primary-blue) !important; }
+.border-primary-blue { border-color: var(--primary-blue) !important; }
+
+.text-primary-blue-dark { color: var(--primary-blue-dark) !important; }
+.bg-primary-blue-dark { background-color: var(--primary-blue-dark) !important; }
+.border-primary-blue-dark { border-color: var(--primary-blue-dark) !important; }
+
+.text-primary-blue-light { color: var(--primary-blue-light) !important; }
+.bg-primary-blue-light { background-color: var(--primary-blue-light) !important; }
+.border-primary-blue-light { border-color: var(--primary-blue-light) !important; }
+
+/* ========================================
+   COMPONENTES PERSONALIZADOS
+   ======================================== */
+
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  border: none;
+  color: var(--secondary-white);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary-custom:hover {
+  background: linear-gradient(135deg, var(--primary-blue-dark) 0%, var(--primary-blue) 100%);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: var(--secondary-white);
+}
+
+.btn-primary-custom:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-custom {
+  background: var(--secondary-white);
+  border: 1px solid var(--secondary-gray-200);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.card-custom:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+[data-theme="dark"] .card-custom {
+  background: var(--dark-bg-secondary);
+  border-color: var(--dark-border);
+}
+
+.input-custom {
+  border: 2px solid var(--secondary-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: all var(--transition-normal);
+  background: var(--secondary-white);
+}
+
+.input-custom:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+[data-theme="dark"] .input-custom {
+  background: var(--dark-bg-tertiary);
+  border-color: var(--dark-border);
+  color: var(--dark-text-primary);
+}
+
+[data-theme="dark"] .input-custom:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(77, 171, 247, 0.25);
+}
