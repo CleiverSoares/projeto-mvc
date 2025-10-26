@@ -1,0 +1,14 @@
+{
+  "name": "Projeto Doar",
+  "description": "Sistema de Gestão Social - Projeto Doar",
+  "repository": "https://github.com/seu-usuario/projeto-doar",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/php"
+    }
+  ]
+}
+
