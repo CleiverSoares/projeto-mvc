@@ -228,14 +228,36 @@ body {
 
 [data-theme="dark"] .card-stats {
   background: var(--dark-bg-secondary);
+  border-color: var(--dark-border);
 }
 
-[data-theme="dark"] .card-stats .card-title {
-  color: var(--dark-text-muted);
+[data-theme="dark"] .card-stats .card-title,
+[data-theme="dark"] .card-stats .text-muted,
+[data-theme="dark"] .card-stats h6 {
+  color: var(--dark-text-secondary) !important;
 }
 
-[data-theme="dark"] .card-stats .card-value {
-  color: var(--primary-blue-light);
+[data-theme="dark"] .card-stats .card-value,
+[data-theme="dark"] .card-stats h3,
+[data-theme="dark"] .card-stats h1,
+[data-theme="dark"] .card-stats h2 {
+  color: var(--dark-text-primary) !important;
+}
+
+[data-theme="dark"] .card-stats .text-success {
+  color: #28a745 !important;
+}
+
+/* Ícones nos cards mantêm suas cores */
+[data-theme="dark"] .card-stats .text-primary,
+[data-theme="dark"] .card-stats .text-success,
+[data-theme="dark"] .card-stats .text-warning,
+[data-theme="dark"] .card-stats .text-info,
+[data-theme="dark"] .card-stats i.text-primary,
+[data-theme="dark"] .card-stats i.text-success,
+[data-theme="dark"] .card-stats i.text-warning,
+[data-theme="dark"] .card-stats i.text-info {
+  color: inherit !important;
 }
 
 /* ========================================
@@ -726,4 +748,121 @@ body {
 
 [data-theme="dark"] .table-custom tbody tr:hover {
   background: var(--dark-bg-tertiary);
+}
+
+/* ========================================
+   DARK MODE - MELHORIAS GLOBAIS
+   ======================================== */
+
+/* Títulos e textos no dark mode */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] .h1,
+[data-theme="dark"] .h2,
+[data-theme="dark"] .h3,
+[data-theme="dark"] .h4,
+[data-theme="dark"] .h5,
+[data-theme="dark"] .h6 {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Textos padrão */
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] label {
+  color: var(--dark-text-primary) !important;
+}
+
+/* Textos muted */
+[data-theme="dark"] .text-muted {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Breadcrumb */
+[data-theme="dark"] .breadcrumb,
+[data-theme="dark"] .breadcrumb-item {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Icons no dark mode - Manter cores originais */
+[data-theme="dark"] .fas,
+[data-theme="dark"] .far,
+[data-theme="dark"] .fab,
+[data-theme="dark"] i {
+  color: inherit !important;
+}
+
+/* Ícones com cores específicas */
+[data-theme="dark"] .text-primary i,
+[data-theme="dark"] i.text-primary {
+  color: #007bff !important;
+}
+
+[data-theme="dark"] .text-success i,
+[data-theme="dark"] i.text-success {
+  color: #28a745 !important;
+}
+
+[data-theme="dark"] .text-warning i,
+[data-theme="dark"] i.text-warning {
+  color: #ffc107 !important;
+}
+
+[data-theme="dark"] .text-danger i,
+[data-theme="dark"] i.text-danger {
+  color: #dc3545 !important;
+}
+
+[data-theme="dark"] .text-info i,
+[data-theme="dark"] i.text-info {
+  color: #17a2b8 !important;
+}
+
+/* Small texts */
+[data-theme="dark"] small {
+  color: var(--dark-text-secondary) !important;
+}
+
+/* Link colors no dark mode */
+[data-theme="dark"] a {
+  color: var(--primary-blue-light) !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--primary-blue) !important;
+}
+
+/* Badges */
+[data-theme="dark"] .badge {
+  color: white;
+}
+
+/* Botões no dark mode */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-primary-custom {
+  color: white !important;
+}
+
+[data-theme="dark"] .btn-secondary,
+[data-theme="dark"] .btn-secondary-custom {
+  background: var(--dark-bg-tertiary) !important;
+  color: var(--dark-text-primary) !important;
+  border-color: var(--dark-border) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover,
+[data-theme="dark"] .btn-secondary-custom:hover {
+  background: var(--dark-bg-secondary) !important;
+  color: var(--dark-text-primary) !important;
+}
+
+/* Background do main content */
+[data-theme="dark"] .main-wrapper,
+[data-theme="dark"] .content-area {
+  background-color: var(--dark-bg-primary) !important;
 }

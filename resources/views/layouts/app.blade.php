@@ -13,6 +13,9 @@
 </head>
 <body>
     <div id="app">
+        <!-- Overlay para mobile -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
             <div class="sidebar-brand">

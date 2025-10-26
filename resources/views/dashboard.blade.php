@@ -126,8 +126,8 @@
         </div>
     </div>
 
-    <!-- Gráficos -->
-    <div class="row mb-4">
+    <!-- Gráficos - Oculto no mobile -->
+    <div class="row mb-4 d-none d-md-flex">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
@@ -193,63 +193,114 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Dados dos gráficos (serão substituídos por dados reais)
-    const dadosParticipantes = @json($evolucao_participantes ?? []);
-    const dadosCategorias = @json($participantes_categoria ?? []);
+    // Dados dos gráficos
+    const dadosParticipantes = @json($evolucao_participantes ?? ['labels' => [], 'values' => []]);
+    const dadosCategorias = @json($participantes_categoria ?? ['labels' => [], 'values' => []]);
 
-    // Gráfico de linha - Evolução de Participantes
-    const participantesCtx = document.getElementById('participantesChart').getContext('2d');
-    new Chart(participantesCtx, {
-        type: 'line',
-        data: {
-            labels: dadosParticipantes.labels || ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
-            datasets: [{
-                label: 'Participantes',
-                data: dadosParticipantes.values || [0, 0, 0, 0, 0, 0],
-                borderColor: '#007BFF',
-                backgroundColor: 'rgba(0, 123, 255, 0.1)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
+    // Variáveis para armazenar os gráficos
+    let participantesChart = null;
+    let categoriasChart = null;
+
+    // Função para criar ou atualizar gráfico
+    function initParticipantesChart() {
+        const canvas = document.getElementById('participantesChart');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        
+        // Destruir gráfico anterior se existir
+        if (participantesChart) {
+            participantesChart.destroy();
+        }
+        
+        participantesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dadosParticipantes.labels || ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Participantes',
+                    data: dadosParticipantes.values || [0, 0, 0, 0, 0, 0],
+                    borderColor: '#007BFF',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 0 // Desabilita animação
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
-    // Gráfico de pizza - Por Categoria
-    const categoriasCtx = document.getElementById('categoriasChart').getContext('2d');
-    new Chart(categoriasCtx, {
-        type: 'doughnut',
-        data: {
-            labels: dadosCategorias.labels || [],
-            datasets: [{
-                data: dadosCategorias.values || [],
-                backgroundColor: [
-                    '#007BFF',
-                    '#28A745',
-                    '#FFC107',
-                    '#DC3545',
-                    '#6C757D'
-                ]
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom'
+    function initCategoriasChart() {
+        const canvas = document.getElementById('categoriasChart');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        
+        // Destruir gráfico anterior se existir
+        if (categoriasChart) {
+            categoriasChart.destroy();
+        }
+        
+        categoriasChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: dadosCategorias.labels || [],
+                datasets: [{
+                    data: dadosCategorias.values || [],
+                    backgroundColor: [
+                        '#007BFF',
+                        '#28A745',
+                        '#FFC107',
+                        '#DC3545',
+                        '#6C757D'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 0 // Desabilita animação
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
                 }
             }
-        }
+        });
+    }
+
+    // Inicializar gráficos apenas se não for mobile
+    if (window.innerWidth > 768) {
+        initParticipantesChart();
+        initCategoriasChart();
+    }
+
+    // Prevenir loop infinito em redimensionamento
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            if (participantesChart) {
+                participantesChart.resize();
+            }
+            if (categoriasChart) {
+                categoriasChart.resize();
+            }
+        }, 250);
     });
 });
 </script>
